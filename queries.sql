@@ -37,3 +37,42 @@ select max(weight_kg) from animals where species='pokemon';
 
 select avg(escape_attempts) from animals where
 date_of_birth between to_date('01/01/1990','dd/mm/yyyy') and to_date('31/12/2000','dd/mm/yyyy');
+
+SELECT owners.full_name, animals.name
+  FROM owners
+  JOIN animals ON owners.id = animals.owner_id
+  where owners.full_name = 'Melody Pond';
+
+SELECT animals.name, species.name
+FROM animals
+  JOIN species ON animals.species_id = species.id
+  where species.name = 'Pokemon';
+
+SELECT owners.full_name, animals.name
+FROM owners
+  LEFT JOIN animals ON owners.id = animals.owner_id;
+
+SELECT species.name, count(animals.name)
+FROM species
+  JOIN animals ON species.id = animals.species_id
+  GROUP BY species.name;
+
+SELECT owners.full_name, animals.name, species.name
+FROM animals
+  JOIN owners ON owners.id = animals.owner_id
+  JOIN species ON species.id = animals.species_id
+  where species.name = 'Digimon' and owners.full_name= 'Jennifer Orwell';
+
+SELECT owners.full_name, animals.name, animals.escape_attempts
+FROM animals
+  JOIN owners ON owners.id = animals.owner_id
+  where animals.escape_attempts = 0 and owners.full_name= 'Dean Winchester';
+
+select owners.full_name, count(animals.name)
+    from animals
+    join owners on animals.owner_id = owners.id
+    group by owners.full_name
+    having count(animals.name) = (select max(count) from (select owners.full_name as full_name, count(animals.name) as count
+        from animals
+        join owners on animals.owner_id = owners.id
+        group by owners.full_name) as count_table);
