@@ -76,3 +76,68 @@ select owners.full_name, count(animals.name)
         from animals
         join owners on animals.owner_id = owners.id
         group by owners.full_name) as count_table);
+
+select vets.name, animals.name, visits.visit_date
+from vets
+join visits on visits.vet_id = vets.id
+join animals on visits.animal_id = animals.id
+where vets.name = 'William Tatcher'
+order by visits.visit_date;
+
+select vets.name, count(animals.name)
+from vets
+join visits on visits.vet_id = vets.id
+join animals on visits.animal_id = animals.id
+group by vets.name
+having vets.name like 'Stephanie%';
+
+select vets.name, species.name
+from vets
+left join specializations s on s.vet_id = vets.id
+left join species on s.species_id = species.id;
+
+select vets.name, animals.name, visits.visit_date
+from vets
+join visits on visits.vet_id = vets.id
+join animals on visits.animal_id = animals.id
+where vets.name like 'Stephanie%' and
+visits.visit_date between TO_DATE('01/04/2020','dd/mm/yyyy') and TO_DATE('30/08/2020','dd/mm/yyyy');
+
+select animals.name, count(visits.animal_id) as count
+from animals
+join visits on visits.animal_id = animals.id
+group by animals.name
+order by count;
+
+select vets.name, visits.visit_date
+from vets
+join visits on visits.vet_id = vets.id
+where vets.name like 'Maisy%'
+order by visits.visit_date;
+
+select vets.name, vets.age, vets.date_of_graduation,
+    animals.name, animals.date_of_birth, animals.escape_attempts, animals.neutered,
+    animals.weight_kg, species.name, owners.full_name, visits.visit_date
+from vets
+join visits on visits.vet_id = vets.id
+join animals on visits.animal_id = animals.id
+join species on animals.species_id = species.id
+join owners on animals.owner_id = owners.id
+order by visits.visit_date DESC
+limit 1;
+
+select count(*) from (select vets.name, animals.name, species.name, s.species_id
+from visits
+join vets on visits.vet_id = vets.id
+join animals on visits.animal_id = animals.id
+left join specializations s on (s.vet_id = vets.id and s.species_id = animals.species_id)
+join species on animals.species_id = species.id
+where s.species_id is null) as mytable;
+
+select count(vets.name), species.name
+from visits
+join vets on visits.vet_id = vets.id
+join animals on visits.animal_id = animals.id
+join species on animals.species_id = species.id
+where vets.name like '%Smith'
+group by species.name;
