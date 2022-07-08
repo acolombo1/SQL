@@ -50,3 +50,35 @@ where name = 'Charmander' or name='Squirtle' or name='Blossom';
 update animals
 set owner_id=5
 where name = 'Angemon' or name='Boarmon';
+
+Insert into vets (name, age, date_of_graduation) values ('William Tatcher', 45, TO_DATE('23/04/2000','dd/mm/yyyy'));
+Insert into vets (name, age, date_of_graduation) values ('Maisy Smith', 26, TO_DATE('17/01/2019','dd/mm/yyyy'));
+Insert into vets (name, age, date_of_graduation) values ('Stephanie Mendez', 64, TO_DATE('04/05/1981','dd/mm/yyyy'));
+Insert into vets (name, age, date_of_graduation) values ('Jack Harkness', 38, TO_DATE('08/06/2008','dd/mm/yyyy'));
+
+insert into specializations values (1,1);
+insert into specializations values (3,1);
+insert into specializations values (3,2);
+insert into specializations values (4,2);
+
+insert into visits values (1,1,TO_DATE('24/05/2020','dd/mm/yyyy'));
+insert into visits values (3,1,TO_DATE('22/07/2020','dd/mm/yyyy'));
+insert into visits values (4,2,TO_DATE('02/02/2021','dd/mm/yyyy'));
+insert into visits values (2,3,TO_DATE('05/01/2020','dd/mm/yyyy'));
+insert into visits values (2,3,TO_DATE('08/03/2020','dd/mm/yyyy'));
+insert into visits values (2,3,TO_DATE('14/05/2020','dd/mm/yyyy'));
+insert into visits values (3,4,TO_DATE('04/05/2021','dd/mm/yyyy'));
+insert into visits values (4,5,TO_DATE('24/02/2021','dd/mm/yyyy'));
+insert into visits values (2,6,TO_DATE('21/12/2019','dd/mm/yyyy'));
+insert into visits values (1,6,TO_DATE('10/08/2020','dd/mm/yyyy'));
+insert into visits values (2,6,TO_DATE('07/04/2021','dd/mm/yyyy'));
+insert into visits values (3,7,TO_DATE('29/09/2019','dd/mm/yyyy'));
+insert into visits values (4,8,TO_DATE('03/10/2020','dd/mm/yyyy'));
+insert into visits values (4,8,TO_DATE('04/11/2020','dd/mm/yyyy'));
+insert into visits values (2,9,TO_DATE('24/01/2019','dd/mm/yyyy'));
+insert into visits values (2,9,TO_DATE('15/05/2019','dd/mm/yyyy'));
+insert into visits values (2,9,TO_DATE('27/02/2020','dd/mm/yyyy'));
+insert into visits values (2,9,TO_DATE('03/08/2020','dd/mm/yyyy'));
+insert into visits values (3,10,TO_DATE('24/05/2020','dd/mm/yyyy'));
+insert into visits values (1,10,TO_DATE('11/01/2021','dd/mm/yyyy'));
+
