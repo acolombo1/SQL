@@ -82,7 +82,8 @@ from vets
 join visits on visits.vet_id = vets.id
 join animals on visits.animal_id = animals.id
 where vets.name = 'William Tatcher'
-order by visits.visit_date;
+order by visits.visit_date DESC
+limit 1;
 
 select vets.name, count(animals.name)
 from vets
@@ -101,13 +102,15 @@ from vets
 join visits on visits.vet_id = vets.id
 join animals on visits.animal_id = animals.id
 where vets.name like 'Stephanie%' and
-visits.visit_date between TO_DATE('01/04/2020','dd/mm/yyyy') and TO_DATE('30/08/2020','dd/mm/yyyy');
+visits.visit_date between TO_DATE('01/04/2020','dd/mm/yyyy')
+and TO_DATE('30/08/2020','dd/mm/yyyy');
 
 select animals.name, count(visits.animal_id) as count
 from animals
 join visits on visits.animal_id = animals.id
 group by animals.name
-order by count;
+order by count DESC
+limit 1;
 
 select vets.name, visits.visit_date
 from vets
