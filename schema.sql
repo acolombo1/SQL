@@ -46,3 +46,12 @@ create table visits (
    animal_id INT,
    visit_date DATE
 );
+
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+create index visits_animals ON visits(animal_id);
+
+create index visits_vet_ids ON visits(vet_id);
+
+create index owners_emails ON owners(email);
+
