@@ -13,7 +13,7 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 ## Diagram of Schema
 
-![vet_clinic_diagram](https://user-images.githubusercontent.com/44879977/178545775-3849021a-131f-410a-88e9-22007864dd89.png)
+![vet_clinic_diagram](https://user-images.githubusercontent.com/44879977/178549871-04844436-920e-4f35-8eae-51e567d5fddc.png)
 
 ## Authors
 
